@@ -1,0 +1,8 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/Aspel.CoreFiscal.Cancelacion.Api/Aspel.CoreFiscal.Cancelacion.Api.csproj" />
+    <Project Path="src/Aspel.CoreFiscal.Cancelacion.Application/Aspel.CoreFiscal.Cancelacion.Application.csproj" />
+    <Project Path="src/Aspel.CoreFiscal.Cancelacion.Domain/Aspel.CoreFiscal.Cancelacion.Domain.csproj" />
+    <Project Path="src/Aspel.CoreFiscal.Cancelacion.Infrastructure/Aspel.CoreFiscal.Cancelacion.Infrastructure.csproj" />
+  </Folder>
+</Solution>

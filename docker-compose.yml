@@ -1,0 +1,41 @@
+version: '3.8'
+
+services:
+  api:
+    build:
+      context: .
+      dockerfile: src/Aspel.CoreFiscal.Cancelacion.Api/Dockerfile
+    container_name: aspel-corefiscal-api
+    ports:
+      - "8080:8080"
+      - "8081:8081" # Puerto HTTPS / WCF
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    depends_on:
+      - sqlserver
+      - redis
+    networks:
+      - corefiscal-network
+
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: aspel-corefiscal-sql
+    environment:
+      ACCEPT_EULA: "Y"
+      MSSQL_SA_PASSWORD: "Tu_PasswordFuerte123!"
+    ports:
+      - "1433:1433"
+    networks:
+      - corefiscal-network
+
+  redis:
+    image: redis:alpine
+    container_name: aspel-corefiscal-redis
+    ports:
+      - "6379:6379"
+    networks:
+      - corefiscal-network
+
+networks:
+  corefiscal-network:
+    driver: bridge
